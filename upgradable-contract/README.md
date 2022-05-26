@@ -83,22 +83,37 @@ $ yarn clean
 
 To deploy the contracts to Hardhat Network:
 
-```sh
-$ yarn deploy:token
-```
+1. Fist we deploy the initial token:
+    ```sh
+    $ yarn deploy:token
+    ```
 
-```sh
-$ yarn deploy:governance
-```
+2. Then we run the update task:
+    ```sh
+    $ yarn deploy:update
+    ```
 
-To deploy on Rinkeby
-```sh
-$ yarn deploy:token --network rinkeby
-```
+3. Finally we deploy our governance contract:
+    ```sh
+    $ yarn deploy:governance
+    ```
 
-```sh
-$ yarn deploy:governance --network rinkeby
-```
+To deploy on Rinkeby:
+
+1. Fist we deploy the initial token:
+    ```sh
+    $ yarn deploy:token --network rinkeby
+    ```
+
+2. Then we run the update task:
+    ```sh
+    $ yarn deploy:update --network rinkeby
+    ```
+
+3. Finally we deploy our governance contract:
+    ```sh
+    $ yarn deploy:governance --network rinkeby
+    ```
 
 ## Syntax Highlighting
 

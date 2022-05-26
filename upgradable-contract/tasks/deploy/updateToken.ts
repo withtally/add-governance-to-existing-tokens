@@ -5,7 +5,7 @@ import { NewToken } from "../../src/types/contracts";
 import { NewToken__factory } from "../../src/types/factories/contracts";
 import { getTokenInfo, saveJSON } from "../../test/utils";
 
-task("deploy:updateToken").setAction(async function (_: TaskArguments, { ethers, upgrades, run }) {
+task("deploy:UpdateToken").setAction(async function (_: TaskArguments, { ethers, upgrades, run }) {
   // get current proxy address
   const oldToken = getTokenInfo("./oldTokenAddress.json");
 

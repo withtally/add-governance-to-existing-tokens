@@ -87,7 +87,7 @@ To deploy the contracts to Hardhat Network:
 $ yarn deploy
 ```
 
-To deploy on Rinkeby
+To deploy on Rinkeby:
 
 ```sh
 $ yarn deploy --network rinkeby
