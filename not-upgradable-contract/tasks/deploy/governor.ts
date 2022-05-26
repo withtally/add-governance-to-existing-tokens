@@ -10,6 +10,7 @@ task("deploy:Governance").setAction(async function (_, { ethers, run }) {
 
   const tokenFactory: NewNFTToken__factory = await ethers.getContractFactory("NewNFTToken");
 
+  // replace with your existing token address
   const oldTokenAddress = ethers.constants.AddressZero; // old NFT token address
 
   const token: NewNFTToken = <NewNFTToken>await tokenFactory.deploy(oldTokenAddress);

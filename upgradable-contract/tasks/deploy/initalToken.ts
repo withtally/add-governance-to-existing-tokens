@@ -17,7 +17,7 @@ task("deploy:InitialToken").setAction(async function (_: TaskArguments, { ethers
     token: { proxy: tokenProxy.address, implementation: tokenImplementationAddress },
   };
 
-  saveJSON(data, "./oldTokenAddress.json");
+  saveJSON(data, "./newTokenAddress.json");
 
   // etherscan verification
   await run("verify:verify", {

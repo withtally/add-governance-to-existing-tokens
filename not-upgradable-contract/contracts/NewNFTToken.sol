@@ -26,7 +26,7 @@ contract NewNFTToken is ERC721, Ownable, EIP712, ERC721Votes {
         _burn(_tokenId); // burn voteToken after withdraw
     }
 
-    function safeMint(address _to, uint256 _tokenId) private returns (uint256 tokenId) {
+    function safeMint(address _to, uint256 _tokenId) private {
         _safeMint(_to, _tokenId);
     }
 

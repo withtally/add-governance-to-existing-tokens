@@ -22,12 +22,12 @@ export const saveJSON = (data: any, path: string) => {
   }
 };
 
-export const getCurrentProxy = () => {
+export const getTokenInfo = (path: string) => {
   try {
-    const data = fs.readFileSync("./oldTokenAddress.json", "utf8");
+    const data = fs.readFileSync(path, "utf8");
     const jsonData = JSON.parse(data);
 
-    return jsonData.token.proxy;
+    return jsonData.token;
   } catch (err) {
     console.error(err);
   }
