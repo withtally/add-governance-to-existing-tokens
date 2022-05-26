@@ -1,20 +1,9 @@
-# Solidity Template
+# Not upgradable token contract example
 
-My favorite setup for writing Solidity smart contracts.
+From the blog post [How to add DAO governance to existing token contracts]()
 
-- [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
-- [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
-- [Ethers](https://github.com/ethers-io/ethers.js/): renowned Ethereum library and wallet implementation
-- [Waffle](https://github.com/EthWorks/Waffle): tooling for writing comprehensive smart contract tests
-- [Solhint](https://github.com/protofire/solhint): linter
-- [Solcover](https://github.com/sc-forks/solidity-coverage): code coverage
-- [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code formatter
-
-This is a GitHub template, which means you can reuse it as many times as you want. You can do that by clicking the "Use this
-template" button at the top of the page.
-
-## Usage
-
+In this example you can review how to update an existing not upgradable token contract so
+ it can be governance compatible and deploy the governance with the new token.
 ### Pre Requisites
 
 Before running any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an environment
@@ -92,10 +81,16 @@ $ yarn clean
 
 ### Deploy
 
-Deploy the contracts to Hardhat Network:
+To deploy the contracts to Hardhat Network:
 
 ```sh
-$ yarn deploy --greeting "Bonjour, le monde!"
+$ yarn deploy
+```
+
+To deploy on Rinkeby
+
+```sh
+$ yarn deploy --network rinkeby
 ```
 
 ## Syntax Highlighting

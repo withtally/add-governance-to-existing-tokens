@@ -1,16 +1,22 @@
-import fs from "fs-extra";
 import { task } from "hardhat/config";
 import type { TaskArguments } from "hardhat/types";
 
 import { Governor, NewToken, Timelock } from "../../src/types/contracts";
 import { Governor__factory, NewToken__factory, Timelock__factory } from "../../src/types/factories/contracts";
+import { getCurrentProxy, saveJSON } from "../../test/utils";
 
+// make sure you've created your initial token before running this task
 task("deploy:Governance").setAction(async function (_: TaskArguments, { ethers, upgrades, run }) {
-  // token deployment
-  const Token: NewToken__factory = await ethers.getContractFactory("NewToken");
-  const tokenProxy: NewToken = <NewToken>await upgrades.deployProxy(Token, []);
-  await tokenProxy.deployed();
-  const tokenImplementationAddress = await upgrades.erc1967.getImplementationAddress(tokenProxy.address);
+  // get current proxy address
+  const proxy = getCurrentProxy();
+
+  // token upgrade
+  const UpgradedToken = await ethers.getContractFactory("NewToken");
+  const upgraded = await upgrades.upgradeProxy(proxy, UpgradedToken);
+
+  await upgraded.deployed();
+
+  const tokenImplementationAddress = await upgrades.erc1967.getImplementationAddress(upgraded.address);
 
   // timelock deployment
   const Timelock: Timelock__factory = await ethers.getContractFactory("Timelock");
@@ -22,9 +28,7 @@ task("deploy:Governance").setAction(async function (_: TaskArguments, { ethers, 
 
   // governor deployment
   const Governor: Governor__factory = await ethers.getContractFactory("Governor");
-  const governorProxy: Governor = <Governor>(
-    await upgrades.deployProxy(Governor, [tokenProxy.address, timelockProxy.address])
-  );
+  const governorProxy: Governor = <Governor>await upgrades.deployProxy(Governor, [proxy, timelockProxy.address]);
   await governorProxy.deployed();
   const governorImplementationAddress = await upgrades.erc1967.getImplementationAddress(governorProxy.address);
 
@@ -40,7 +44,7 @@ task("deploy:Governance").setAction(async function (_: TaskArguments, { ethers, 
 
   // write to local
   const data = {
-    token: { proxy: tokenProxy.address, implementation: tokenImplementationAddress },
+    token: { proxy: proxy, implementation: tokenImplementationAddress },
     timelock: { proxy: timelockProxy.address, implementation: timelockImplementationAddress },
     governance: { proxy: governorProxy.address, implementation: governorImplementationAddress },
   };
@@ -58,15 +62,6 @@ task("deploy:Governance").setAction(async function (_: TaskArguments, { ethers, 
 
   await run("verify:verify", {
     address: governorImplementationAddress,
-    constructorArguments: [tokenProxy.address, timelockProxy.address],
+    constructorArguments: [proxy, timelockProxy.address],
   });
 });
-
-const saveJSON = (data: any, path: string) => {
-  try {
-    fs.writeFileSync(path, JSON.stringify(data));
-    console.log(`Object stored on directory: ${path}`);
-  } catch (err) {
-    console.error(err);
-  }
-};

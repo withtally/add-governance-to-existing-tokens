@@ -49,6 +49,21 @@
       "address": "0x469e8a93066b90732A63DAD3c8D9e1870472349c",
       "txHash": "0xdbae5ef7b1e6fbcdc8858099faf8da5600558a92de03100dddcc339d6ffcad86",
       "kind": "transparent"
+    },
+    {
+      "address": "0xc00C4640F5C7d8A0D37193d50Fb0e99DBB6F137d",
+      "txHash": "0x76f27c32a647ff2e4b214d61f813a6ca4214ba47a82734e02d92a3fb4de42a48",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xD2acec9EF8a37c0B628C60D18322c541E15C5e9f",
+      "txHash": "0xf9235c9a68a3259d6b417c4ac0bfaeed68b07f896e2617d010ff68c2144377e9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xec29E18ac63C3C3F7B7599FbE5f9DDf34068Fa27",
+      "txHash": "0xb62f8296fa270bed4e769f06cb91fe1dab4a76b7498a4668fc44d7c665e2afde",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -996,7 +1011,7 @@
             "label": "_nonces",
             "offset": 0,
             "slot": "203",
-            "type": "t_mapping(t_address,t_struct(Counter)6370_storage)",
+            "type": "t_mapping(t_address,t_struct(Counter)2232_storage)",
             "contract": "ERC20PermitUpgradeable",
             "src": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol:28"
           },
@@ -1029,7 +1044,7 @@
             "label": "_checkpoints",
             "offset": 0,
             "slot": "255",
-            "type": "t_mapping(t_address,t_array(t_struct(Checkpoint)5184_storage)dyn_storage)",
+            "type": "t_mapping(t_address,t_array(t_struct(Checkpoint)1064_storage)dyn_storage)",
             "contract": "ERC20VotesUpgradeable",
             "src": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20VotesUpgradeable.sol:43"
           },
@@ -1037,7 +1052,7 @@
             "label": "_totalSupplyCheckpoints",
             "offset": 0,
             "slot": "256",
-            "type": "t_array(t_struct(Checkpoint)5184_storage)dyn_storage",
+            "type": "t_array(t_struct(Checkpoint)1064_storage)dyn_storage",
             "contract": "ERC20VotesUpgradeable",
             "src": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20VotesUpgradeable.sol:44"
           },
@@ -1055,7 +1070,7 @@
             "label": "address",
             "numberOfBytes": "20"
           },
-          "t_array(t_struct(Checkpoint)5184_storage)dyn_storage": {
+          "t_array(t_struct(Checkpoint)1064_storage)dyn_storage": {
             "label": "struct ERC20VotesUpgradeable.Checkpoint[]",
             "numberOfBytes": "32"
           },
@@ -1087,7 +1102,7 @@
             "label": "mapping(address => address)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_address,t_array(t_struct(Checkpoint)5184_storage)dyn_storage)": {
+          "t_mapping(t_address,t_array(t_struct(Checkpoint)1064_storage)dyn_storage)": {
             "label": "mapping(address => struct ERC20VotesUpgradeable.Checkpoint[])",
             "numberOfBytes": "32"
           },
@@ -1095,7 +1110,7 @@
             "label": "mapping(address => mapping(address => uint256))",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_address,t_struct(Counter)6370_storage)": {
+          "t_mapping(t_address,t_struct(Counter)2232_storage)": {
             "label": "mapping(address => struct CountersUpgradeable.Counter)",
             "numberOfBytes": "32"
           },
@@ -1107,7 +1122,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Checkpoint)5184_storage": {
+          "t_struct(Checkpoint)1064_storage": {
             "label": "struct ERC20VotesUpgradeable.Checkpoint",
             "members": [
               {
@@ -1125,7 +1140,7 @@
             ],
             "numberOfBytes": "32"
           },
-          "t_struct(Counter)6370_storage": {
+          "t_struct(Counter)2232_storage": {
             "label": "struct CountersUpgradeable.Counter",
             "members": [
               {
