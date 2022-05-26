@@ -1,0 +1,14 @@
+{
+  "token": {
+    "proxy": "0x3CdA2442f85A6aA2cA885A46e1C7E8798D95657e",
+    "implementation": "0xe693BE2DA5453a5bD3200cDA9BbC98642309ae7e"
+  },
+  "timelock": {
+    "proxy": "0xc7D6034Eaab4E7D5C77C52b0e17C5DbA3ad9D04B",
+    "implementation": "0x2A41f53b212AD963304c7a949882e123517cef49"
+  },
+  "governance": {
+    "proxy": "0x469e8a93066b90732A63DAD3c8D9e1870472349c",
+    "implementation": "0x02e3cdC70379AC75973c6A41E44A18a989056fdA"
+  }
+}
